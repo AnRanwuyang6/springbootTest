@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="common/common"></head>
+<body>
+<div id="wrapper">
+    <!--左边start-->
+    <div th:include="common/left::left"></div>
+    <!--左边end-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <!--头部start-->
+        <div th:include="common/header::header"></div>
+        <!--头部end-->
+        <div th:include="verification/List::list"></div>
+        <!--footer开始-->
+        <div th:include="common/footer::footer"></div>
+    </div>
+    <script th:src="@{/myjs/verification/list.js}"></script>
+</div>
+<script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        //常规用法
+        laydate.render({
+            elem: '#beginTime'
+        });
+        laydate.render({
+            elem: '#endTime'
+        });
+    });
+    $(function () {
+        $('#foodType').dropdown();
+        $('#myfoodType').dropdown();
+    })
+</script>
+</body>
+</html>

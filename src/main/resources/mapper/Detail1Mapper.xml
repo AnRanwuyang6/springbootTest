@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bingo.invoice.invoice.dao.Detail1Mapper" >
+  <resultMap id="BaseResultMap" type="com.bingo.invoice.invoice.entity.Detail1" >
+    <id column="seq" property="seq" jdbcType="VARCHAR" />
+    <result column="invoice_seq" property="invoiceSeq" jdbcType="VARCHAR" />
+    <result column="xmmc" property="xmmc" jdbcType="VARCHAR" />
+    <result column="cph" property="cph" jdbcType="VARCHAR" />
+    <result column="lx" property="lx" jdbcType="VARCHAR" />
+    <result column="rqq" property="rqq" jdbcType="VARCHAR" />
+    <result column="rqz" property="rqz" jdbcType="VARCHAR" />
+    <result column="je" property="je" jdbcType="DECIMAL" />
+    <result column="sl" property="sl" jdbcType="DECIMAL" />
+    <result column="se" property="se" jdbcType="DECIMAL" />
+    <result column="fwmc1" property="fwmc1" jdbcType="VARCHAR" />
+    <result column="fwmc2" property="fwmc2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    seq, invoice_seq, xmmc, cph, lx, rqq, rqz, je, sl, se, fwmc1, fwmc2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from detail1
+    where seq = #{seq,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from detail1
+    where seq = #{seq,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bingo.invoice.invoice.entity.Detail1" >
+    insert into detail1 (seq, invoice_seq, xmmc, 
+      cph, lx, rqq, rqz, 
+      je, sl, se, fwmc1, 
+      fwmc2)
+    values (#{seq,jdbcType=VARCHAR}, #{invoiceSeq,jdbcType=VARCHAR}, #{xmmc,jdbcType=VARCHAR}, 
+      #{cph,jdbcType=VARCHAR}, #{lx,jdbcType=VARCHAR}, #{rqq,jdbcType=VARCHAR}, #{rqz,jdbcType=VARCHAR}, 
+      #{je,jdbcType=DECIMAL}, #{sl,jdbcType=DECIMAL}, #{se,jdbcType=DECIMAL}, #{fwmc1,jdbcType=VARCHAR}, 
+      #{fwmc2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bingo.invoice.invoice.entity.Detail1" >
+    insert into detail1
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="seq != null" >
+        seq,
+      </if>
+      <if test="invoiceSeq != null" >
+        invoice_seq,
+      </if>
+      <if test="xmmc != null" >
+        xmmc,
+      </if>
+      <if test="cph != null" >
+        cph,
+      </if>
+      <if test="lx != null" >
+        lx,
+      </if>
+      <if test="rqq != null" >
+        rqq,
+      </if>
+      <if test="rqz != null" >
+        rqz,
+      </if>
+      <if test="je != null" >
+        je,
+      </if>
+      <if test="sl != null" >
+        sl,
+      </if>
+      <if test="se != null" >
+        se,
+      </if>
+      <if test="fwmc1 != null" >
+        fwmc1,
+      </if>
+      <if test="fwmc2 != null" >
+        fwmc2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="seq != null" >
+        #{seq,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceSeq != null" >
+        #{invoiceSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="xmmc != null" >
+        #{xmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="cph != null" >
+        #{cph,jdbcType=VARCHAR},
+      </if>
+      <if test="lx != null" >
+        #{lx,jdbcType=VARCHAR},
+      </if>
+      <if test="rqq != null" >
+        #{rqq,jdbcType=VARCHAR},
+      </if>
+      <if test="rqz != null" >
+        #{rqz,jdbcType=VARCHAR},
+      </if>
+      <if test="je != null" >
+        #{je,jdbcType=DECIMAL},
+      </if>
+      <if test="sl != null" >
+        #{sl,jdbcType=DECIMAL},
+      </if>
+      <if test="se != null" >
+        #{se,jdbcType=DECIMAL},
+      </if>
+      <if test="fwmc1 != null" >
+        #{fwmc1,jdbcType=VARCHAR},
+      </if>
+      <if test="fwmc2 != null" >
+        #{fwmc2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bingo.invoice.invoice.entity.Detail1" >
+    update detail1
+    <set >
+      <if test="invoiceSeq != null" >
+        invoice_seq = #{invoiceSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="xmmc != null" >
+        xmmc = #{xmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="cph != null" >
+        cph = #{cph,jdbcType=VARCHAR},
+      </if>
+      <if test="lx != null" >
+        lx = #{lx,jdbcType=VARCHAR},
+      </if>
+      <if test="rqq != null" >
+        rqq = #{rqq,jdbcType=VARCHAR},
+      </if>
+      <if test="rqz != null" >
+        rqz = #{rqz,jdbcType=VARCHAR},
+      </if>
+      <if test="je != null" >
+        je = #{je,jdbcType=DECIMAL},
+      </if>
+      <if test="sl != null" >
+        sl = #{sl,jdbcType=DECIMAL},
+      </if>
+      <if test="se != null" >
+        se = #{se,jdbcType=DECIMAL},
+      </if>
+      <if test="fwmc1 != null" >
+        fwmc1 = #{fwmc1,jdbcType=VARCHAR},
+      </if>
+      <if test="fwmc2 != null" >
+        fwmc2 = #{fwmc2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where seq = #{seq,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bingo.invoice.invoice.entity.Detail1" >
+    update detail1
+    set invoice_seq = #{invoiceSeq,jdbcType=VARCHAR},
+      xmmc = #{xmmc,jdbcType=VARCHAR},
+      cph = #{cph,jdbcType=VARCHAR},
+      lx = #{lx,jdbcType=VARCHAR},
+      rqq = #{rqq,jdbcType=VARCHAR},
+      rqz = #{rqz,jdbcType=VARCHAR},
+      je = #{je,jdbcType=DECIMAL},
+      sl = #{sl,jdbcType=DECIMAL},
+      se = #{se,jdbcType=DECIMAL},
+      fwmc1 = #{fwmc1,jdbcType=VARCHAR},
+      fwmc2 = #{fwmc2,jdbcType=VARCHAR}
+    where seq = #{seq,jdbcType=VARCHAR}
+  </update>
+  <select id="getDetail1s" parameterType="java.util.Map" resultMap="BaseResultMap">
+    SELECT
+    *
+    FROM
+    detail1
+    WHERE
+    invoice_seq = #{invoiceId}
+  </select>
+  <delete id="deleteByInvoiceId" parameterType="java.util.Map">
+    DELETE
+    FROM detail1
+    WHERE
+    invoice_seq = #{invoiceId}
+  </delete>
+</mapper>

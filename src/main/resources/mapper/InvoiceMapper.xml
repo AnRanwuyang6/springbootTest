@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bingo.invoice.invoice.dao.InvoiceMapper" >
+  <resultMap id="BaseResultMap" type="com.bingo.invoice.invoice.entity.Invoice" >
+    <id column="seq" property="seq" jdbcType="VARCHAR" />
+    <result column="rei_id" property="reiId" jdbcType="VARCHAR" />
+    <result column="jqbh" property="jqbh" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="fpdm" property="fpdm" jdbcType="VARCHAR" />
+    <result column="fphm" property="fphm" jdbcType="VARCHAR" />
+    <result column="kprq" property="kprq" jdbcType="VARCHAR" />
+    <result column="jym" property="jym" jdbcType="VARCHAR" />
+    <result column="mc1" property="mc1" jdbcType="VARCHAR" />
+    <result column="nsrsbh1" property="nsrsbh1" jdbcType="VARCHAR" />
+    <result column="dzdh1" property="dzdh1" jdbcType="VARCHAR" />
+    <result column="khhjzh1" property="khhjzh1" jdbcType="VARCHAR" />
+    <result column="mmq" property="mmq" jdbcType="VARCHAR" />
+    <result column="hjje" property="hjje" jdbcType="DECIMAL" />
+    <result column="hjse" property="hjse" jdbcType="DECIMAL" />
+    <result column="jshjdx" property="jshjdx" jdbcType="VARCHAR" />
+    <result column="jshjxx" property="jshjxx" jdbcType="DECIMAL" />
+    <result column="mc2" property="mc2" jdbcType="VARCHAR" />
+    <result column="nsrsbh2" property="nsrsbh2" jdbcType="VARCHAR" />
+    <result column="dzdh2" property="dzdh2" jdbcType="VARCHAR" />
+    <result column="khhjzh2" property="khhjzh2" jdbcType="VARCHAR" />
+    <result column="skr" property="skr" jdbcType="VARCHAR" />
+    <result column="fh" property="fh" jdbcType="VARCHAR" />
+    <result column="kpr" property="kpr" jdbcType="VARCHAR" />
+    <result column="file" property="file" jdbcType="VARCHAR" />
+    <result column="upload_time" property="uploadTime" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="iden_dtatus" property="idenDtatus" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_at" property="createAt" jdbcType="TIMESTAMP" />
+    <result column="last_update_by" property="lastUpdateBy" jdbcType="VARCHAR" />
+    <result column="last_update_at" property="lastUpdateAt" jdbcType="TIMESTAMP" />
+    <result column="str1" property="str1" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="MyResultMap" type="com.bingo.invoice.invoice.entity.vo.InvoiceVo" extends="BaseResultMap">
+
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    seq, rei_id, jqbh, title, fpdm, fphm, kprq, jym, mc1, nsrsbh1, dzdh1, khhjzh1, mmq, 
+    hjje, hjse, jshjdx, jshjxx, mc2, nsrsbh2, dzdh2, khhjzh2, skr, fh, kpr, file, upload_time, 
+    type, iden_dtatus, create_by, create_at, last_update_by, last_update_at, str1
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from invoice
+    where seq = #{seq,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from invoice
+    where seq = #{seq,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bingo.invoice.invoice.entity.Invoice" >
+    insert into invoice (seq, rei_id, jqbh, 
+      title, fpdm, fphm, 
+      kprq, jym, mc1, nsrsbh1, 
+      dzdh1, khhjzh1, mmq, 
+      hjje, hjse, jshjdx, 
+      jshjxx, mc2, nsrsbh2, 
+      dzdh2, khhjzh2, skr, 
+      fh, kpr, file, upload_time, 
+      type, iden_dtatus, create_by, 
+      create_at, last_update_by, last_update_at, 
+      str1)
+    values (#{seq,jdbcType=VARCHAR}, #{reiId,jdbcType=VARCHAR}, #{jqbh,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{fpdm,jdbcType=VARCHAR}, #{fphm,jdbcType=VARCHAR}, 
+      #{kprq,jdbcType=VARCHAR}, #{jym,jdbcType=VARCHAR}, #{mc1,jdbcType=VARCHAR}, #{nsrsbh1,jdbcType=VARCHAR}, 
+      #{dzdh1,jdbcType=VARCHAR}, #{khhjzh1,jdbcType=VARCHAR}, #{mmq,jdbcType=VARCHAR}, 
+      #{hjje,jdbcType=DECIMAL}, #{hjse,jdbcType=DECIMAL}, #{jshjdx,jdbcType=VARCHAR}, 
+      #{jshjxx,jdbcType=DECIMAL}, #{mc2,jdbcType=VARCHAR}, #{nsrsbh2,jdbcType=VARCHAR}, 
+      #{dzdh2,jdbcType=VARCHAR}, #{khhjzh2,jdbcType=VARCHAR}, #{skr,jdbcType=VARCHAR}, 
+      #{fh,jdbcType=VARCHAR}, #{kpr,jdbcType=VARCHAR}, #{file,jdbcType=VARCHAR}, #{uploadTime,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{idenDtatus,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, 
+      #{createAt,jdbcType=TIMESTAMP}, #{lastUpdateBy,jdbcType=VARCHAR}, #{lastUpdateAt,jdbcType=TIMESTAMP}, 
+      #{str1,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bingo.invoice.invoice.entity.Invoice" >
+    insert into invoice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="seq != null" >
+        seq,
+      </if>
+      <if test="reiId != null" >
+        rei_id,
+      </if>
+      <if test="jqbh != null" >
+        jqbh,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="fpdm != null" >
+        fpdm,
+      </if>
+      <if test="fphm != null" >
+        fphm,
+      </if>
+      <if test="kprq != null" >
+        kprq,
+      </if>
+      <if test="jym != null" >
+        jym,
+      </if>
+      <if test="mc1 != null" >
+        mc1,
+      </if>
+      <if test="nsrsbh1 != null" >
+        nsrsbh1,
+      </if>
+      <if test="dzdh1 != null" >
+        dzdh1,
+      </if>
+      <if test="khhjzh1 != null" >
+        khhjzh1,
+      </if>
+      <if test="mmq != null" >
+        mmq,
+      </if>
+      <if test="hjje != null" >
+        hjje,
+      </if>
+      <if test="hjse != null" >
+        hjse,
+      </if>
+      <if test="jshjdx != null" >
+        jshjdx,
+      </if>
+      <if test="jshjxx != null" >
+        jshjxx,
+      </if>
+      <if test="mc2 != null" >
+        mc2,
+      </if>
+      <if test="nsrsbh2 != null" >
+        nsrsbh2,
+      </if>
+      <if test="dzdh2 != null" >
+        dzdh2,
+      </if>
+      <if test="khhjzh2 != null" >
+        khhjzh2,
+      </if>
+      <if test="skr != null" >
+        skr,
+      </if>
+      <if test="fh != null" >
+        fh,
+      </if>
+      <if test="kpr != null" >
+        kpr,
+      </if>
+      <if test="file != null" >
+        file,
+      </if>
+      <if test="uploadTime != null" >
+        upload_time,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="idenDtatus != null" >
+        iden_dtatus,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createAt != null" >
+        create_at,
+      </if>
+      <if test="lastUpdateBy != null" >
+        last_update_by,
+      </if>
+      <if test="lastUpdateAt != null" >
+        last_update_at,
+      </if>
+      <if test="str1 != null" >
+        str1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="seq != null" >
+        #{seq,jdbcType=VARCHAR},
+      </if>
+      <if test="reiId != null" >
+        #{reiId,jdbcType=VARCHAR},
+      </if>
+      <if test="jqbh != null" >
+        #{jqbh,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="fpdm != null" >
+        #{fpdm,jdbcType=VARCHAR},
+      </if>
+      <if test="fphm != null" >
+        #{fphm,jdbcType=VARCHAR},
+      </if>
+      <if test="kprq != null" >
+        #{kprq,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null" >
+        #{jym,jdbcType=VARCHAR},
+      </if>
+      <if test="mc1 != null" >
+        #{mc1,jdbcType=VARCHAR},
+      </if>
+      <if test="nsrsbh1 != null" >
+        #{nsrsbh1,jdbcType=VARCHAR},
+      </if>
+      <if test="dzdh1 != null" >
+        #{dzdh1,jdbcType=VARCHAR},
+      </if>
+      <if test="khhjzh1 != null" >
+        #{khhjzh1,jdbcType=VARCHAR},
+      </if>
+      <if test="mmq != null" >
+        #{mmq,jdbcType=VARCHAR},
+      </if>
+      <if test="hjje != null" >
+        #{hjje,jdbcType=DECIMAL},
+      </if>
+      <if test="hjse != null" >
+        #{hjse,jdbcType=DECIMAL},
+      </if>
+      <if test="jshjdx != null" >
+        #{jshjdx,jdbcType=VARCHAR},
+      </if>
+      <if test="jshjxx != null" >
+        #{jshjxx,jdbcType=DECIMAL},
+      </if>
+      <if test="mc2 != null" >
+        #{mc2,jdbcType=VARCHAR},
+      </if>
+      <if test="nsrsbh2 != null" >
+        #{nsrsbh2,jdbcType=VARCHAR},
+      </if>
+      <if test="dzdh2 != null" >
+        #{dzdh2,jdbcType=VARCHAR},
+      </if>
+      <if test="khhjzh2 != null" >
+        #{khhjzh2,jdbcType=VARCHAR},
+      </if>
+      <if test="skr != null" >
+        #{skr,jdbcType=VARCHAR},
+      </if>
+      <if test="fh != null" >
+        #{fh,jdbcType=VARCHAR},
+      </if>
+      <if test="kpr != null" >
+        #{kpr,jdbcType=VARCHAR},
+      </if>
+      <if test="file != null" >
+        #{file,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadTime != null" >
+        #{uploadTime,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="idenDtatus != null" >
+        #{idenDtatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null" >
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null" >
+        #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateAt != null" >
+        #{lastUpdateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="str1 != null" >
+        #{str1,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bingo.invoice.invoice.entity.Invoice" >
+    update invoice
+    <set >
+      <if test="reiId != null" >
+        rei_id = #{reiId,jdbcType=VARCHAR},
+      </if>
+      <if test="jqbh != null" >
+        jqbh = #{jqbh,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="fpdm != null" >
+        fpdm = #{fpdm,jdbcType=VARCHAR},
+      </if>
+      <if test="fphm != null" >
+        fphm = #{fphm,jdbcType=VARCHAR},
+      </if>
+      <if test="kprq != null" >
+        kprq = #{kprq,jdbcType=VARCHAR},
+      </if>
+      <if test="jym != null" >
+        jym = #{jym,jdbcType=VARCHAR},
+      </if>
+      <if test="mc1 != null" >
+        mc1 = #{mc1,jdbcType=VARCHAR},
+      </if>
+      <if test="nsrsbh1 != null" >
+        nsrsbh1 = #{nsrsbh1,jdbcType=VARCHAR},
+      </if>
+      <if test="dzdh1 != null" >
+        dzdh1 = #{dzdh1,jdbcType=VARCHAR},
+      </if>
+      <if test="khhjzh1 != null" >
+        khhjzh1 = #{khhjzh1,jdbcType=VARCHAR},
+      </if>
+      <if test="mmq != null" >
+        mmq = #{mmq,jdbcType=VARCHAR},
+      </if>
+      <if test="hjje != null" >
+        hjje = #{hjje,jdbcType=DECIMAL},
+      </if>
+      <if test="hjse != null" >
+        hjse = #{hjse,jdbcType=DECIMAL},
+      </if>
+      <if test="jshjdx != null" >
+        jshjdx = #{jshjdx,jdbcType=VARCHAR},
+      </if>
+      <if test="jshjxx != null" >
+        jshjxx = #{jshjxx,jdbcType=DECIMAL},
+      </if>
+      <if test="mc2 != null" >
+        mc2 = #{mc2,jdbcType=VARCHAR},
+      </if>
+      <if test="nsrsbh2 != null" >
+        nsrsbh2 = #{nsrsbh2,jdbcType=VARCHAR},
+      </if>
+      <if test="dzdh2 != null" >
+        dzdh2 = #{dzdh2,jdbcType=VARCHAR},
+      </if>
+      <if test="khhjzh2 != null" >
+        khhjzh2 = #{khhjzh2,jdbcType=VARCHAR},
+      </if>
+      <if test="skr != null" >
+        skr = #{skr,jdbcType=VARCHAR},
+      </if>
+      <if test="fh != null" >
+        fh = #{fh,jdbcType=VARCHAR},
+      </if>
+      <if test="kpr != null" >
+        kpr = #{kpr,jdbcType=VARCHAR},
+      </if>
+      <if test="file != null" >
+        file = #{file,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadTime != null" >
+        upload_time = #{uploadTime,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="idenDtatus != null" >
+        iden_dtatus = #{idenDtatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null" >
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null" >
+        last_update_by = #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateAt != null" >
+        last_update_at = #{lastUpdateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="str1 != null" >
+        str1 = #{str1,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where seq = #{seq,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bingo.invoice.invoice.entity.Invoice" >
+    update invoice
+    set rei_id = #{reiId,jdbcType=VARCHAR},
+      jqbh = #{jqbh,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      fpdm = #{fpdm,jdbcType=VARCHAR},
+      fphm = #{fphm,jdbcType=VARCHAR},
+      kprq = #{kprq,jdbcType=VARCHAR},
+      jym = #{jym,jdbcType=VARCHAR},
+      mc1 = #{mc1,jdbcType=VARCHAR},
+      nsrsbh1 = #{nsrsbh1,jdbcType=VARCHAR},
+      dzdh1 = #{dzdh1,jdbcType=VARCHAR},
+      khhjzh1 = #{khhjzh1,jdbcType=VARCHAR},
+      mmq = #{mmq,jdbcType=VARCHAR},
+      hjje = #{hjje,jdbcType=DECIMAL},
+      hjse = #{hjse,jdbcType=DECIMAL},
+      jshjdx = #{jshjdx,jdbcType=VARCHAR},
+      jshjxx = #{jshjxx,jdbcType=DECIMAL},
+      mc2 = #{mc2,jdbcType=VARCHAR},
+      nsrsbh2 = #{nsrsbh2,jdbcType=VARCHAR},
+      dzdh2 = #{dzdh2,jdbcType=VARCHAR},
+      khhjzh2 = #{khhjzh2,jdbcType=VARCHAR},
+      skr = #{skr,jdbcType=VARCHAR},
+      fh = #{fh,jdbcType=VARCHAR},
+      kpr = #{kpr,jdbcType=VARCHAR},
+      file = #{file,jdbcType=VARCHAR},
+      upload_time = #{uploadTime,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      iden_dtatus = #{idenDtatus,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      last_update_by = #{lastUpdateBy,jdbcType=VARCHAR},
+      last_update_at = #{lastUpdateAt,jdbcType=TIMESTAMP},
+      str1 = #{str1,jdbcType=VARCHAR}
+    where seq = #{seq,jdbcType=VARCHAR}
+  </update>
+    <select id="getListByParams" parameterType="java.util.Map" resultMap="BaseResultMap">
+    SELECT ii.*
+    FROM invoice ii
+    LEFT JOIN reimbursement rr ON ii.rei_id=rr.id
+    WHERE 1 = 1
+    <if test=" jqbh!=null and jqbh!=''">
+      AND ii.jqbh = #{jqbh}
+    </if>
+    <if test=" fpdm !=null and fpdm!=''">
+      AND ii.fpdm = #{fpdm}
+    </if>
+    <if test=" fphm !=null and fphm!=''">
+      AND ii.fphm = #{fphm}
+    </if>
+    <if test=" kprq !=null and kprq!=''">
+      AND ii.kprq = #{kprq}
+    </if>
+    AND ii.iden_dtatus='3'
+    AND rr.`status`='1'
+  </select>
+  <select id="getInvoiceListByReiId" parameterType="java.util.Map" resultMap="BaseResultMap">
+      SELECT
+          *
+      FROM
+          invoice
+      WHERE
+          rei_id = #{reiId}
+          ORDER BY iden_dtatus DESC
+  </select>
+  <select id="getInvoiceVoListByReiId" parameterType="java.util.Map" resultMap="MyResultMap">
+    SELECT
+    *
+    FROM
+    invoice
+    WHERE
+    rei_id = #{reiId}
+    ORDER BY iden_dtatus DESC
+  </select>
+
+
+  <select id="getInvoiceListByReiIdAndStatus" parameterType="java.util.Map" resultMap="BaseResultMap">
+    SELECT
+    *
+    FROM
+    invoice
+    WHERE
+    rei_id = #{reiId}
+    AND
+    iden_dtatus=#{status}
+  </select>
+
+  <select id="getInvoiceListByNo" parameterType="java.util.Map" resultMap="BaseResultMap">
+    SELECT * FROM invoice
+    WHERE
+        fphm =#{fphm}
+  </select>
+
+  <select id="getDetailByParams" parameterType="java.util.Map" resultType="com.bingo.invoice.invoice.entity.vo.DetailVo">
+    select d.fwmc1,d.fwmc2,d.se,d.je,i.title,i.fphm,i.hjse,i.hjje,
+    r.rei_persion as reiPersion,DATE_FORMAT(r.create_date, '%Y-%m-%d') AS createDate,i.seq as invId,r.id as reiId
+    FROM detail d
+    LEFT JOIN invoice i ON d.invoice_seq=i.seq
+    LEFT JOIN reimbursement r ON i.rei_id=r.id
+    where 1=1
+    <if test="searchText !=null and searchText!='' ">
+      AND (r.rei_persion LIKE CONCAT('%',#{searchText,jdbcType=VARCHAR},'%')
+      OR i.fphm LIKE CONCAT('%',#{searchText,jdbcType=VARCHAR},'%')
+      )
+    </if>
+    <if test="beginTime != null and beginTime != ''">
+      <!--  <![CDATA[ AND a.UPDATE_TIME >= #{beginTime} ]]>-->
+      AND r.create_date <![CDATA[>=]]> #{beginTime}
+    </if>
+    <if test="endTime != null and endTime != ''">
+      <!-- <![CDATA[ AND a.UPDATE_TIME >= #{endTime} ]]>-->
+      AND r.create_date <![CDATA[<=]]>#{endTime}
+    </if>
+    AND i.iden_dtatus=3
+    AND r.`status`=1
+    AND d.sl>0
+    union
+    select d1.fwmc1,d1.fwmc2,d1.se,d1.je,i.title,i.fphm,i.hjse,i.hjje,
+    r.rei_persion as reiPersion,DATE_FORMAT(r.create_date, '%Y-%m-%d') AS createDate,i.seq as invId,r.id as reiId
+    FROM detail1 d1
+    LEFT JOIN invoice i ON d1.invoice_seq=i.seq
+    LEFT JOIN reimbursement r ON i.rei_id=r.id
+    where 1=1
+    <if test="searchText !=null and searchText!='' ">
+      AND (r.rei_persion LIKE CONCAT('%',#{searchText,jdbcType=VARCHAR},'%')
+      OR i.fphm LIKE CONCAT('%',#{searchText,jdbcType=VARCHAR},'%')
+      )
+    </if>
+    <if test="beginTime != null and beginTime != ''">
+      <!--  <![CDATA[ AND a.UPDATE_TIME >= #{beginTime} ]]>-->
+      AND r.create_date <![CDATA[>=]]> #{beginTime}
+    </if>
+    <if test="endTime != null and endTime != ''">
+      <!-- <![CDATA[ AND a.UPDATE_TIME >= #{endTime} ]]>-->
+      AND r.create_date <![CDATA[<=]]>#{endTime}
+    </if>
+    AND i.iden_dtatus=3
+    AND r.`status`=1
+    AND d1.sl>0
+  </select>
+
+  <select id="getInvoicePageByParams" parameterType="java.util.Map" resultType="com.bingo.invoice.invoice.entity.vo.InvoiceVo">
+    SELECT
+      i.*, r.rei_persion as reiPersion,
+      DATE_FORMAT(r.create_date, '%Y-%m-%d') AS reiDate
+    FROM
+        invoice i
+    LEFT JOIN reimbursement r ON i.rei_id = r.id
+    WHERE
+        1 = 1
+    <if test="searchText !=null and searchText!='' ">
+      AND (r.rei_persion LIKE CONCAT('%',#{searchText,jdbcType=VARCHAR},'%')
+      OR i.fphm LIKE CONCAT('%',#{searchText,jdbcType=VARCHAR},'%')
+      )
+    </if>
+    <if test="beginTime != null and beginTime != ''">
+      <!--  <![CDATA[ AND a.UPDATE_TIME >= #{beginTime} ]]>-->
+      AND r.create_date <![CDATA[>=]]> #{beginTime}
+    </if>
+    <if test="endTime != null and endTime != ''">
+      <!-- <![CDATA[ AND a.UPDATE_TIME >= #{endTime} ]]>-->
+      AND r.create_date <![CDATA[<=]]>#{endTime}
+    </if>
+    AND i.iden_dtatus = 3
+    AND r.`status` = 1
+  </select>
+
+  <delete id="deleteBatchInvoice" parameterType="java.util.List">
+    DELETE FROM invoice where rei_id in
+    <foreach collection="list" item="item" index="index" open="("
+             separator="," close=")">
+      #{item}
+    </foreach>
+  </delete>
+</mapper>

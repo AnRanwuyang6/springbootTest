@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>bingo 发票打印</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/semantic.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h1>电子发票PDF合并打印</h1>
+        <!--<ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">主页</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong>面包屑</strong>
+            </li>
+        </ol>-->
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+            <a href="/merge/html" class="btn btn-primary" >重新上传</a>
+            <a href="" class="btn btn-primary" id="dayin">打印发票</a>
+        </div>
+    </div>
+</div>
+<div class="ui divider"></div>
+<!--startprint-->
+<!--<div class="row" th:each="url:${imageUrls}" style="margin-top: 10px;margin-left: 150px">
+    <div class="col-sm-6">
+        <img style="height:480px" th:src="${url}">
+    </div>
+</div>-->
+<div class="ui grid">
+    <div class="row" th:each="url:${imageUrls}">
+        <div class="three wide column"></div>
+        <div class="ten wide column"><img th:src="${url}"></div>
+        <div class="three wide column"></div>
+    </div>
+</div>
+
+<!--endprint-->
+
+<div class="ui divider"></div>
+
+<div class="loginColumns animated fadeInDown">
+</div>
+
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/semantic.min.js"></script>
+<script>
+    $(function () {
+        $("#dayin").click(function() {
+            bdhtml=window.document.body.innerHTML;
+            sprnstr="<!--startprint-->"; //开始打印标识字符串有17个字符
+            eprnstr="<!--endprint-->"; //结束打印标识字符串
+            prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17); //从开始打印标识之后的内容
+            prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr)); //截取开始标识和结束标识之间的内容
+            window.document.body.innerHTML=prnhtml; //把需要打印的指定内容赋给body.innerHTML
+            window.print(); //调用浏览器的打印功能打印指定区域
+            window.document.body.innerHTML=bdhtml;//重新给页面内容赋值；
+            return false;
+        });
+    })
+</script>
+
+</body>
+
+</html>

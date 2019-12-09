@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<div th:fragment="list" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h3></h3>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href=".html">主页</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a>发票核验</a>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+
+        </div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox ">
+                    <div class="ibox-content">
+                        <div class="container-fluid" style="margin-left: 60px">
+                            <!--报销单id-->
+                            <input type="hidden" id="reiId" th:value="${reiId}">
+                            <form id="form" action="" method="post" enctype="multipart/form-data">
+                                <div class="row form-group">
+                                    <label class="col-md-4">文件上传(请选择pdf文件):</label>
+                                    <div class="col-sm-10">
+                                        <input id="input-id" name="file"  type="file" data-show-caption="true">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+</html>

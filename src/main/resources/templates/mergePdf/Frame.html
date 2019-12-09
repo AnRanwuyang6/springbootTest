@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="common/common"></head>
+<body>
+<div id="wrapper">
+    <!--左边start-->
+    <div th:include="common/left::left"></div>
+    <!--左边end-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <!--头部start-->
+        <div th:include="common/header::header"></div>
+        <!--头部end-->
+        <div th:include="mergePdf/List::list"></div>
+        <!--footer开始-->
+        <div th:include="common/footer::footer"></div>
+    </div>
+    <script th:src="@{/myjs/mergePdf/list.js}"></script>
+</div>
+<script>
+
+</script>
+</body>
+</html>

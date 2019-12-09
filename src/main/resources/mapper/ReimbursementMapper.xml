@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bingo.invoice.invoice.dao.ReimbursementMapper" >
+  <resultMap id="BaseResultMap" type="com.bingo.invoice.invoice.entity.Reimbursement" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="rei_persion" property="reiPersion" jdbcType="VARCHAR" />
+    <result column="rei_dep" property="reiDep" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="responsible_persion" property="responsiblePersion" jdbcType="VARCHAR" />
+    <result column="rei_project" property="reiProject" jdbcType="VARCHAR" />
+    <result column="total_je" property="totalJe" jdbcType="DECIMAL" />
+    <result column="total_se" property="totalSe" jdbcType="DECIMAL" />
+    <result column="total_money" property="totalMoney" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_at" property="createAt" jdbcType="TIMESTAMP" />
+    <result column="last_update_by" property="lastUpdateBy" jdbcType="VARCHAR" />
+    <result column="last_update_at" property="lastUpdateAt" jdbcType="TIMESTAMP" />
+    <result column="str1" property="str1" jdbcType="VARCHAR" />
+    <result column="str2" property="str2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, rei_persion, rei_dep, create_date, responsible_persion, rei_project, total_je, 
+    total_se, total_money, status, create_by, create_at, last_update_by, last_update_at, 
+    str1, str2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from reimbursement
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from reimbursement
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bingo.invoice.invoice.entity.Reimbursement" >
+    insert into reimbursement (id, rei_persion, rei_dep, 
+      create_date, responsible_persion, rei_project, 
+      total_je, total_se, total_money, 
+      status, create_by, create_at, 
+      last_update_by, last_update_at, str1, 
+      str2)
+    values (#{id,jdbcType=VARCHAR}, #{reiPersion,jdbcType=VARCHAR}, #{reiDep,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{responsiblePersion,jdbcType=VARCHAR}, #{reiProject,jdbcType=VARCHAR}, 
+      #{totalJe,jdbcType=DECIMAL}, #{totalSe,jdbcType=DECIMAL}, #{totalMoney,jdbcType=DECIMAL}, 
+      #{status,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createAt,jdbcType=TIMESTAMP}, 
+      #{lastUpdateBy,jdbcType=VARCHAR}, #{lastUpdateAt,jdbcType=TIMESTAMP}, #{str1,jdbcType=VARCHAR}, 
+      #{str2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bingo.invoice.invoice.entity.Reimbursement" >
+    insert into reimbursement
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="reiPersion != null" >
+        rei_persion,
+      </if>
+      <if test="reiDep != null" >
+        rei_dep,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="responsiblePersion != null" >
+        responsible_persion,
+      </if>
+      <if test="reiProject != null" >
+        rei_project,
+      </if>
+      <if test="totalJe != null" >
+        total_je,
+      </if>
+      <if test="totalSe != null" >
+        total_se,
+      </if>
+      <if test="totalMoney != null" >
+        total_money,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createAt != null" >
+        create_at,
+      </if>
+      <if test="lastUpdateBy != null" >
+        last_update_by,
+      </if>
+      <if test="lastUpdateAt != null" >
+        last_update_at,
+      </if>
+      <if test="str1 != null" >
+        str1,
+      </if>
+      <if test="str2 != null" >
+        str2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="reiPersion != null" >
+        #{reiPersion,jdbcType=VARCHAR},
+      </if>
+      <if test="reiDep != null" >
+        #{reiDep,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="responsiblePersion != null" >
+        #{responsiblePersion,jdbcType=VARCHAR},
+      </if>
+      <if test="reiProject != null" >
+        #{reiProject,jdbcType=VARCHAR},
+      </if>
+      <if test="totalJe != null" >
+        #{totalJe,jdbcType=DECIMAL},
+      </if>
+      <if test="totalSe != null" >
+        #{totalSe,jdbcType=DECIMAL},
+      </if>
+      <if test="totalMoney != null" >
+        #{totalMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null" >
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null" >
+        #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateAt != null" >
+        #{lastUpdateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="str1 != null" >
+        #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="str2 != null" >
+        #{str2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bingo.invoice.invoice.entity.Reimbursement" >
+    update reimbursement
+    <set >
+      <if test="reiPersion != null" >
+        rei_persion = #{reiPersion,jdbcType=VARCHAR},
+      </if>
+      <if test="reiDep != null" >
+        rei_dep = #{reiDep,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="responsiblePersion != null" >
+        responsible_persion = #{responsiblePersion,jdbcType=VARCHAR},
+      </if>
+      <if test="reiProject != null" >
+        rei_project = #{reiProject,jdbcType=VARCHAR},
+      </if>
+      <if test="totalJe != null" >
+        total_je = #{totalJe,jdbcType=DECIMAL},
+      </if>
+      <if test="totalSe != null" >
+        total_se = #{totalSe,jdbcType=DECIMAL},
+      </if>
+      <if test="totalMoney != null" >
+        total_money = #{totalMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null" >
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null" >
+        last_update_by = #{lastUpdateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateAt != null" >
+        last_update_at = #{lastUpdateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="str1 != null" >
+        str1 = #{str1,jdbcType=VARCHAR},
+      </if>
+      <if test="str2 != null" >
+        str2 = #{str2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bingo.invoice.invoice.entity.Reimbursement" >
+    update reimbursement
+    set rei_persion = #{reiPersion,jdbcType=VARCHAR},
+      rei_dep = #{reiDep,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      responsible_persion = #{responsiblePersion,jdbcType=VARCHAR},
+      rei_project = #{reiProject,jdbcType=VARCHAR},
+      total_je = #{totalJe,jdbcType=DECIMAL},
+      total_se = #{totalSe,jdbcType=DECIMAL},
+      total_money = #{totalMoney,jdbcType=DECIMAL},
+      status = #{status,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      last_update_by = #{lastUpdateBy,jdbcType=VARCHAR},
+      last_update_at = #{lastUpdateAt,jdbcType=TIMESTAMP},
+      str1 = #{str1,jdbcType=VARCHAR},
+      str2 = #{str2,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+    <select id="listPageByParams" parameterType="java.util.Map" resultMap="BaseResultMap">
+    SELECT rei.*
+    FROM reimbursement rei
+    WHERE 1 = 1
+    <if test="reiPersion != null and reiPersion != ''">
+      AND rei.`rei_persion` LIKE '%${reiPersion}%'
+    </if>
+    <if test="beginTime != null and beginTime != ''">
+      <!--  <![CDATA[ AND a.UPDATE_TIME >= #{beginTime} ]]>-->
+      AND rei.create_date <![CDATA[>=]]> #{beginTime}
+    </if>
+    <if test="endTime != null and endTime != ''">
+      <!-- <![CDATA[ AND a.UPDATE_TIME >= #{endTime} ]]>-->
+      AND rei.create_date <![CDATA[<=]]>#{endTime}
+    </if>
+    AND rei.`status` = 1
+  </select>
+
+  <select id="getNoSubmitData" parameterType="java.util.Map" resultMap="BaseResultMap">
+    SELECT rei.*
+    FROM reimbursement rei
+    WHERE 1 = 1
+    <if test="status != null and status != ''">
+      <!-- <![CDATA[ AND a.UPDATE_TIME >= #{endTime} ]]>-->
+      AND rei.`status` = #{status}
+    </if>
+  </select>
+
+  <delete id="deleteBatch" parameterType="java.util.List">
+    DELETE FROM reimbursement where id in
+    <foreach collection="list" item="item" index="index" open="("
+             separator="," close=")">
+      #{item}
+    </foreach>
+  </delete>
+</mapper>

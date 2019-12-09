@@ -1,0 +1,67 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="list" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h3></h3>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href=".html">主页</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a>报销管理</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>新增报销单</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+
+        </div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>新增报销单</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <form id="eimbursementrForm">
+                            <input type="hidden" th:value="${id}" name="id" id="id">
+                            <div class="form-group  row">
+                                <label class="col-sm-1 col-form-label">报销人:</label>
+                                <div class="col-sm-4"><input type="text" name="reiPersion" id="reiPersionAdd" th:value="${reiPersion}" class="form-control" required></div>
+                                <label class="col-sm-1 col-form-label">报销部门:</label>
+                                <div class="col-sm-4"><input type="text" name="reiDep" id="reiDepAdd" th:value="${reiDep}" class="form-control"></div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group row"><label class="col-sm-2 col-form-label">报销项目:</label>
+                                <div class="col-sm-8"><input type="text" name="reiProject" id="reiProjectAdd" th:value="${reiProject}" class="form-control"> <span class="form-text m-b-none">这里可以填写报销项目的一些信息</span>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group row"><label class="col-sm-2 col-form-label">负责人:</label>
+                                <div class="col-sm-8"><input type="text" name="responsiblePersion" id="responsiblePersionAdd" th:value="${responsiblePersion}" placeholder="请填写报销单负责人" class="form-control"></div>
+                            </div>
+                            <div class="form-group row">
+                                    <div class="ui primary button" id="addSumbit" style="margin-left: 90%">下一步</div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</html>

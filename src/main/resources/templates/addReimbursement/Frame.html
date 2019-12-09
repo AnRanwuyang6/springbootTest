@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="common/common"></head>
+<head>
+    <!-- Jquery Validate -->
+    <script src="../js/jquery.validate.min.js"></script>
+    <script src="../js/messages_zh.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <!--左边start-->
+    <div th:include="common/left::left"></div>
+    <!--左边end-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <!--头部start-->
+        <div th:include="common/header::header"></div>
+        <!--头部end-->
+        <div th:include="addReimbursement/List::list"></div>
+        <!--footer开始-->
+        <div th:include="common/footer::footer"></div>
+    </div>
+    <script th:src="@{/myjs/addReimbursement/list.js}"></script>
+</div>
+
+<script>
+    $(document).ready(function(){
+    });
+</script>
+</body>
+</html>

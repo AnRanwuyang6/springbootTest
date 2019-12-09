@@ -1,0 +1,55 @@
+<div th:fragment="check" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="ui small modal" id="addModal" style="margin-top: -400px;height: 450px">
+        <i class="close icon"></i>
+        <div class="header">
+            发票核验
+        </div>
+        <form class="ui warning form" style="margin:5% 10% 5% 10%" id="checkForm">
+            <input type="hidden" id="key2" name="key2">
+            <input type="hidden" id="key3" name="key3">
+            <input type="hidden" id="cookie" name="cookie">
+            <input type="hidden" id="fplx" name="fplx">
+            <input type="hidden" id="url_prefix" name="url_prefix">
+            <div class="two fields">
+                <div class="field">
+                    <label style="font-size: small">发票代码</label>
+                    <input placeholder="发票代码" type="text" name="fpdm" id="add_fpdm" readonly>
+                </div>
+                <div class="field">
+                    <label style="font-size: small">发票号码</label>
+                    <input placeholder="发票号码" type="text" name="fphm" id="add_fphm" readonly>
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label style="font-size: small">校验码</label>
+                    <input placeholder="校验码" type="text" name="jym" id="add_jym" readonly>
+                </div>
+                <div class="field">
+                    <label style="font-size: small">开票日期</label>
+                    <input placeholder="开票日期" type="text" name="kprq" id="add_kprq" readonly>
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label style="font-size: small">验证码</label>
+                    <input placeholder="请输入验证码" type="text" name="yzm" id="yzm_add" >
+                </div>
+                <div class="field">
+                    <label style="font-size: small">&nbsp;&nbsp;</label>
+                    <span id="tip" style="font-size: large"></span>
+                </div>
+                <!--<label>备注</label>
+                <textarea rows="2" style="resize: none" name="remark" id="add_remark"></textarea>-->
+            </div>
+            <div class="field">
+                <label style="font-size: small"></label>
+                <img src="" style="width: 120px" id="checkImg" onclick="refreshImg()"><span> 点击图片以刷新</span>
+            </div>
+        </form>
+        <div class="actions">
+            <div class="ui primary button" onclick="checkSumbit()">提交</div>
+            <div class="ui button" onclick="$('#addModal').modal('hide')">取消</div>
+        </div>
+    </div>
+</div>
