@@ -50,6 +50,17 @@
 			<artifactId>pagehelper-spring-boot-starter</artifactId>
 			<version>1.2.5</version>
 		</dependency>
+		<!--redis依赖-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.32</version>
+		</dependency>
 
 		<!-- thymeleaf 模板引擎 start-->
 		<dependency>
@@ -62,6 +73,8 @@
 			<version>1.9.22</version>
 		</dependency>
 		<!-- thymeleaf 模板引擎 end-->
+
+
 
 		<!-- 汉字转拼音-->
 		<dependency>
